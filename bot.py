@@ -78,7 +78,7 @@ async def _3hits(ctx):
 
     guild = ctx.guild
     voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-    audio_source = discord.FFmpegPCMAudio('/audiofiles/3hits.mp3')
+    audio_source = discord.FFmpegPCMAudio('./audiofiles/3hits.mp3')
     if not voice_client.is_playing():
         voice_client.play(audio_source, after=None)
 
@@ -94,7 +94,7 @@ async def screen(ctx):
 
     guild = ctx.guild
     voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-    audio_source = discord.FFmpegPCMAudio('/audiofiles/screen.mp3')
+    audio_source = discord.FFmpegPCMAudio('./audiofiles/screen.mp3')
     if not voice_client.is_playing():
         voice_client.play(audio_source, after=None)
 
@@ -110,7 +110,7 @@ async def donger(ctx):
 
     guild = ctx.guild
     voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-    audio_source = discord.FFmpegPCMAudio('/audiofiles/donger.mp3')
+    audio_source = discord.FFmpegPCMAudio('./audiofiles/donger.mp3')
     if not voice_client.is_playing():
         voice_client.play(audio_source, after=None)
 
@@ -126,7 +126,7 @@ async def dima(ctx):
 
     guild = ctx.guild
     voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-    audio_source = discord.FFmpegPCMAudio('/audiofiles/dima.mp3')
+    audio_source = discord.FFmpegPCMAudio('./audiofiles/dima.mp3')
     if not voice_client.is_playing():
         voice_client.play(audio_source, after=None)
 
@@ -142,7 +142,7 @@ async def moneh(ctx):
 
     guild = ctx.guild
     voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-    audio_source = discord.FFmpegPCMAudio('/audiofiles/moneh.mp3')
+    audio_source = discord.FFmpegPCMAudio('./audiofiles/moneh.mp3')
     if not voice_client.is_playing():
         voice_client.play(audio_source, after=None)
 
@@ -158,7 +158,7 @@ async def game(ctx):
 
     guild = ctx.guild
     voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-    audio_source = discord.FFmpegPCMAudio('/audiofiles/game.mp3')
+    audio_source = discord.FFmpegPCMAudio('./audiofiles/game.mp3')
     if not voice_client.is_playing():
         voice_client.play(audio_source, after=None)
 
@@ -174,7 +174,7 @@ async def genius(ctx):
 
     guild = ctx.guild
     voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-    audio_source = discord.FFmpegPCMAudio('/audiofiles/genius.mp3')
+    audio_source = discord.FFmpegPCMAudio('./audiofiles/genius.mp3')
     if not voice_client.is_playing():
         voice_client.play(audio_source, after=None)
 
@@ -190,7 +190,7 @@ async def nigga(ctx):
 
     guild = ctx.guild
     voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-    audio_source = discord.FFmpegPCMAudio('/audiofiles/nigga.mp3')
+    audio_source = discord.FFmpegPCMAudio('./audiofiles/nigga.mp3')
     if not voice_client.is_playing():
         voice_client.play(audio_source, after=None)
 
@@ -206,7 +206,7 @@ async def omae(ctx):
 
     guild = ctx.guild
     voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-    audio_source = discord.FFmpegPCMAudio('/audiofiles/omae.mp3')
+    audio_source = discord.FFmpegPCMAudio('./audiofiles/omae.mp3')
     if not voice_client.is_playing():
         voice_client.play(audio_source, after=None)
 
@@ -222,7 +222,7 @@ async def kokodayo(ctx):
 
     guild = ctx.guild
     voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-    audio_source = discord.FFmpegPCMAudio('/audiofiles/kokodayo.mp3')
+    audio_source = discord.FFmpegPCMAudio('./audiofiles/kokodayo.mp3')
     if not voice_client.is_playing():
         voice_client.play(audio_source, after=None)
 
@@ -238,7 +238,7 @@ async def nico(ctx):
 
     guild = ctx.guild
     voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-    audio_source = discord.FFmpegPCMAudio('/audiofiles/nico.mp3')
+    audio_source = discord.FFmpegPCMAudio('./audiofiles/nico.mp3')
     if not voice_client.is_playing():
         voice_client.play(audio_source, after=None)
 
@@ -254,7 +254,7 @@ async def over9k(ctx):
 
     guild = ctx.guild
     voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-    audio_source = discord.FFmpegPCMAudio('/audiofiles/over9k.mp3')
+    audio_source = discord.FFmpegPCMAudio('./audiofiles/over9k.mp3')
     if not voice_client.is_playing():
         voice_client.play(audio_source, after=None)
 
@@ -270,7 +270,7 @@ async def konoyaro(ctx):
 
     guild = ctx.guild
     voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-    audio_source = discord.FFmpegPCMAudio('/audiofiles/konoyaro.mp3')
+    audio_source = discord.FFmpegPCMAudio('./audiofiles/konoyaro.mp3')
     if not voice_client.is_playing():
         voice_client.play(audio_source, after=None)
 
@@ -286,7 +286,7 @@ async def humble(ctx):
 
     guild = ctx.guild
     voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-    audio_source = discord.FFmpegPCMAudio('/audiofiles/humble.mp3')
+    audio_source = discord.FFmpegPCMAudio('./audiofiles/humble.mp3')
     if not voice_client.is_playing():
         voice_client.play(audio_source, after=None)
 
@@ -302,7 +302,7 @@ async def zai(ctx):
 
     guild = ctx.guild
     voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-    audio_source = discord.FFmpegPCMAudio('/audiofiles/zai.mp3')
+    audio_source = discord.FFmpegPCMAudio('./audiofiles/zai.mp3')
     if not voice_client.is_playing():
         voice_client.play(audio_source, after=None)
 
@@ -318,7 +318,7 @@ async def jesus(ctx):
 
     guild = ctx.guild
     voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-    audio_source = discord.FFmpegPCMAudio('/audiofiles/jesus.mp3')
+    audio_source = discord.FFmpegPCMAudio('./audiofiles/jesus.mp3')
     if not voice_client.is_playing():
         voice_client.play(audio_source, after=None)
 
@@ -334,7 +334,7 @@ async def legend(ctx):
 
     guild = ctx.guild
     voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-    audio_source = discord.FFmpegPCMAudio('/audiofiles/legend.mp3')
+    audio_source = discord.FFmpegPCMAudio('./audiofiles/legend.mp3')
     if not voice_client.is_playing():
         voice_client.play(audio_source, after=None)
 
@@ -351,7 +351,7 @@ async def deargod(ctx):
 
     guild = ctx.guild
     voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-    audio_source = discord.FFmpegPCMAudio('/audiofiles/deargod.mp3')
+    audio_source = discord.FFmpegPCMAudio('./audiofiles/deargod.mp3')
     if not voice_client.is_playing():
         voice_client.play(audio_source, after=None)
 
@@ -367,7 +367,7 @@ async def wasthat(ctx):
 
     guild = ctx.guild
     voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-    audio_source = discord.FFmpegPCMAudio('/audiofiles/wasthat.mp3')
+    audio_source = discord.FFmpegPCMAudio('./audiofiles/wasthat.mp3')
     if not voice_client.is_playing():
         voice_client.play(audio_source, after=None)
 
@@ -383,7 +383,7 @@ async def retirement(ctx):
 
     guild = ctx.guild
     voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-    audio_source = discord.FFmpegPCMAudio('/audiofiles/retirement.mp3')
+    audio_source = discord.FFmpegPCMAudio('./audiofiles/retirement.mp3')
     if not voice_client.is_playing():
         voice_client.play(audio_source, after=None)
 
@@ -399,7 +399,7 @@ async def pension(ctx):
 
     guild = ctx.guild
     voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-    audio_source = discord.FFmpegPCMAudio('/audiofiles/pension.mp3')
+    audio_source = discord.FFmpegPCMAudio('./audiofiles/pension.mp3')
     if not voice_client.is_playing():
         voice_client.play(audio_source, after=None)
 
@@ -415,7 +415,7 @@ async def banana(ctx):
 
     guild = ctx.guild
     voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-    audio_source = discord.FFmpegPCMAudio('/audiofiles/banana.mp3')
+    audio_source = discord.FFmpegPCMAudio('./audiofiles/banana.mp3')
     if not voice_client.is_playing():
         voice_client.play(audio_source, after=None)
 
@@ -431,7 +431,7 @@ async def dowry(ctx):
 
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/dowry.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/dowry.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -447,7 +447,7 @@ async def nerd(ctx):
 
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/nerd.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/nerd.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -463,7 +463,7 @@ async def sixk(ctx):
 
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/sixk.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/sixk.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -479,7 +479,7 @@ async def idi(ctx):
 
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/idi.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/idi.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -495,7 +495,7 @@ async def miko(ctx):
 
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/miko.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/miko.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -511,7 +511,7 @@ async def onore(ctx):
 
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/onore.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/onore.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -527,7 +527,7 @@ async def degen(ctx):
 
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/degen.wav')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/degen.wav')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -543,7 +543,7 @@ async def pardun(ctx):
 
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/PARDUN.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/PARDUN.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -559,7 +559,7 @@ async def kiamoan(ctx):
 
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/kiamoan.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/kiamoan.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -575,7 +575,7 @@ async def sayonara(ctx):
 
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/sayonara.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/sayonara.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -591,7 +591,7 @@ async def asa(ctx):
 
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/asa.wav')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/asa.wav')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -607,7 +607,7 @@ async def pogchamp(ctx):
 
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/little_pogchamp1.wav')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/little_pogchamp1.wav')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -623,7 +623,7 @@ async def smol(ctx):
 
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/smol.wav')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/smol.wav')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -639,7 +639,7 @@ async def winf(ctx):
 
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/WinF.wav')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/WinF.wav')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -655,7 +655,7 @@ async def kuso(ctx):
 
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/kuso.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/kuso.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -671,7 +671,7 @@ async def nono(ctx):
 
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/Not_there.wav')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/Not_there.wav')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -687,7 +687,7 @@ async def ehe(ctx):
 
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/Ehe_te_nandayo.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/Ehe_te_nandayo.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -703,7 +703,7 @@ async def gg(ctx):
 
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/Okay_Im_Dead_GG.wav')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/Okay_Im_Dead_GG.wav')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -719,7 +719,7 @@ async def ara(ctx):
 
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/AraAra.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/AraAra.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -735,7 +735,7 @@ async def putin(ctx):
 
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/boifrend.wav')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/boifrend.wav')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -751,7 +751,7 @@ async def okaeri(ctx):
 
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/OKAERI.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/OKAERI.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -767,7 +767,7 @@ async def madar(ctx):
 
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/Madar_Chodh.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/Madar_Chodh.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -783,7 +783,7 @@ async def benc(ctx):
 
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/Benchodh.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/Benchodh.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -799,7 +799,7 @@ async def chutiya(ctx):
 
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/Chutiya.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/Chutiya.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -814,7 +814,7 @@ async def chipapa(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/Chi_Pa_Pa.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/Chi_Pa_Pa.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -829,7 +829,7 @@ async def fightback(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/fightback.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/fightback.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -844,7 +844,7 @@ async def doktah(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/Okaeri_Doktah.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/Okaeri_Doktah.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -859,7 +859,7 @@ async def ape(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/Ape.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/Ape.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -874,7 +874,7 @@ async def protect(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/protect.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/protect.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -889,7 +889,7 @@ async def based(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/based.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/based.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -904,7 +904,7 @@ async def dayo(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/dayo.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/dayo.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -919,7 +919,7 @@ async def sick(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/sickfujck.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/sickfujck.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -934,7 +934,7 @@ async def rei(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/reirei.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/reirei.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -949,7 +949,7 @@ async def giveup(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/giveup.wav')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/giveup.wav')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -964,7 +964,7 @@ async def chicken(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/chicken.wav')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/chicken.wav')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -979,7 +979,7 @@ async def tasukete(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/tasukete.wav')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/tasukete.wav')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -994,7 +994,7 @@ async def not2speak(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/not2speak.wav')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/not2speak.wav')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -1009,7 +1009,7 @@ async def rockch(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/rockch.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/rockch.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -1024,7 +1024,7 @@ async def cuntaway(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/cuntaway.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/cuntaway.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -1039,7 +1039,7 @@ async def _2cb(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/2cb.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/2cb.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -1054,7 +1054,7 @@ async def _2gud(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/2gud.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/2gud.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -1069,7 +1069,7 @@ async def ams(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/ams.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/ams.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -1084,7 +1084,7 @@ async def aui(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/aui.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/aui.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -1099,7 +1099,7 @@ async def beaut(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/beaut.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/beaut.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -1114,7 +1114,7 @@ async def cheeky(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/cheeky.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/cheeky.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -1128,7 +1128,7 @@ async def ded(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/ded.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/ded.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -1143,7 +1143,7 @@ async def dove(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/dove.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/dove.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -1158,7 +1158,7 @@ async def ephy(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/ephy.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/ephy.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -1173,7 +1173,7 @@ async def expected(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/expected.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/expected.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -1188,7 +1188,7 @@ async def explain(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/explain.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/explain.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -1203,7 +1203,7 @@ async def fog(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/fog.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/fog.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -1218,7 +1218,7 @@ async def freeze(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/freeze.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/freeze.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -1233,7 +1233,7 @@ async def impressed(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/impressed.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/impressed.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -1248,7 +1248,7 @@ async def noo(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/noo.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/noo.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -1263,7 +1263,7 @@ async def pep(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/pep.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/pep.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -1278,7 +1278,7 @@ async def praise(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/praise.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/praise.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -1293,7 +1293,7 @@ async def ros(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/ros.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/ros.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -1308,7 +1308,7 @@ async def sheever(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/sheever.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/sheever.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -1323,7 +1323,7 @@ async def shi(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/shi.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/shi.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -1338,7 +1338,7 @@ async def t2m(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/t2m.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/t2m.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -1353,7 +1353,7 @@ async def wai(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/wai.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/wai.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -1368,7 +1368,7 @@ async def wat(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/wat.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/wat.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -1383,7 +1383,7 @@ async def wut(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/wut.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/wut.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -1398,7 +1398,7 @@ async def wyd(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/wyd.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/wyd.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -1413,7 +1413,7 @@ async def yuno(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/yuno.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/yuno.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -1428,7 +1428,7 @@ async def kokki(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/kokki_kumar.wav')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/kokki_kumar.wav')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -1443,7 +1443,7 @@ async def bna(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/bna.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/bna.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -1458,7 +1458,7 @@ async def besto(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/besto.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/besto.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
@@ -1473,7 +1473,7 @@ async def congrats(ctx):
         await channel.connect()
         guild = ctx.guild
         voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-        audio_source = discord.FFmpegPCMAudio('/audiofiles/congrats.mp3')
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/congrats.mp3')
         if not voice_client.is_playing():
             voice_client.play(audio_source, after=None)
 
