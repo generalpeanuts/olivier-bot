@@ -1,0 +1,1531 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from urllib.request import urlopen
+from bs4 import BeautifulSoup
+import re
+import urllib
+import asyncio
+import random
+import discord
+import os
+from discord.ext import commands
+import time
+
+player = {}
+
+client = commands.Bot(command_prefix = '%')
+
+OPUS_LIBS = ['libopus-0.x86.dll', 'libopus-0.x64.dll', 'libopus-0.dll', 'libopus.so.0', 'libopus.0.dylib']
+
+
+def load_opus_lib(opus_libs=OPUS_LIBS):
+    if opus.is_loaded():
+        return True
+
+    for opus_lib in opus_libs:
+        try:
+            opus.load_opus(opus_lib)
+            return
+        except OSError:
+            pass
+
+        raise RuntimeError('Could not load an opus lib. Tried %s' % (', '.join(opus_libs)))
+
+@client.event
+async def on_ready():
+    print('Bot ready!')
+
+@client.command()
+async def ping(ctx):
+    await ctx.send(f'Pong! {round(client.latency * 1000)} ms')
+
+@client.command(aliases =['8ball'])
+async def _8ball(ctx, *, question):
+    responses = ['Yes', 'No', 'Maybe']
+    await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}')
+
+@client.command()
+async def iroh(ctx):
+    possible_quotes = ["IT IS USUALLY BEST TO ADMIT MISTAKES WHEN THEY OCCUR, AND TO SEEK TO RESTORE HONOR.", "IT IS IMPORTANT TO DRAW WISDOM FROM MANY DIFFERENT PLACES.", "IT'S TIME FOR YOU TO LOOK INWARD AND START ASKING YOURSELF THE BIG QUESTION: WHO ARE YOU AND WHAT DO YOU WANT?","SHARING TEA WITH A FASCINATING STRANGER IS ONE OF LIFE’S TRUE DELIGHTS.","HOPE IS SOMETHING YOU GIVE YOURSELF. THAT IS THE MEANING OF INNER STRENGTH.","DESTINY IS A FUNNY THING. YOU NEVER KNOW HOW THINGS ARE GOING TO WORK OUT.","WHILE IT IS ALWAYS BEST TO BELIEVE IN ONESELF, A LITTLE HELP FROM OTHERS CAN BE A GREAT BLESSING.", "PRIDE IS NOT THE OPPOSITE OF SHAME, BUT ITS SOURCE. TRUE HUMILITY IS THE ONLY ANTIDOTE TO SHAME", "LIFE HAPPENS WHEREVER YOU ARE, WHETHER YOU MAKE IT OR NOT."]
+    selected_quote = random.choice(possible_quotes)
+    embed = discord.Embed(title = "Iroh's wise words")
+    embed.add_field(name = "Quote",value = selected_quote, inline = False)
+    await ctx.send(embed = embed)
+
+@client.command()
+async def h(ctx):
+    embed1 = discord.Embed(title = "COMMANDS HELP")
+    embed1.add_field(name = "SoundBites",value = "3hits,bna,screen,donger,dima,moneh,game,genius,nigga,omae,kokodayo,nico,over9k,konoyaro,humble,zai,jesus,legend,deargod,wasthat,retirement,pension,banana,dowry,nerd,sixk,idi,miko,onore,degen,pardun,kiamoan,sayonara,asa,pogchamp,smol,winf,kuso,nono,ehe,gg,ara,putin,okaeri,madar,chutiya,benc,chipapa,fightback,doktah,protect,based,ape,dayo,sick,rei,chicken,tasukete,giveup,not2speak,rockch,cuntaway,2cb,2gud,ams,aui,beaut,cheeky,ded,dove,ephy,expected,explain,fog,freeze,impressed,noo,pep,praise,ros,sheever,shi,t2m,wai,wat,wut,wyd,yuno,kokki,besto,congrats", inline = False)
+    embed1.add_field(name = "Wise Words",value = "iroh", inline = False)
+    embed1.add_field(name = "Pokedex",value = "dex <name of pokemon>", inline = False)
+    await ctx.send(embed = embed1)
+
+@client.command(pass_context=True)
+async def join(ctx):
+    channel = ctx.message.author.voice.channel
+    await channel.connect()
+
+@client.command(pass_context=True)
+async def leave(ctx):
+    server = ctx.message.guild.voice_client
+    await server.disconnect()
+
+@client.command(aliases =['3hits'])
+async def _3hits(ctx):
+    channel = ctx.message.author.voice.channel
+    await channel.connect()
+
+    guild = ctx.guild
+    voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+    audio_source = discord.FFmpegPCMAudio('3hits.mp3')
+    if not voice_client.is_playing():
+        voice_client.play(audio_source, after=None)
+
+    time.sleep(6)
+
+    server = ctx.message.guild.voice_client
+    await server.disconnect()
+
+@client.command()
+async def screen(ctx):
+    channel = ctx.message.author.voice.channel
+    await channel.connect()
+
+    guild = ctx.guild
+    voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+    audio_source = discord.FFmpegPCMAudio('screen.mp3')
+    if not voice_client.is_playing():
+        voice_client.play(audio_source, after=None)
+
+    time.sleep(6)
+
+    server = ctx.message.guild.voice_client
+    await server.disconnect()
+
+@client.command()
+async def donger(ctx):
+    channel = ctx.message.author.voice.channel
+    await channel.connect()
+
+    guild = ctx.guild
+    voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+    audio_source = discord.FFmpegPCMAudio('donger.mp3')
+    if not voice_client.is_playing():
+        voice_client.play(audio_source, after=None)
+
+    time.sleep(9)
+
+    server = ctx.message.guild.voice_client
+    await server.disconnect()
+
+@client.command()
+async def dima(ctx):
+    channel = ctx.message.author.voice.channel
+    await channel.connect()
+
+    guild = ctx.guild
+    voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+    audio_source = discord.FFmpegPCMAudio('dima.mp3')
+    if not voice_client.is_playing():
+        voice_client.play(audio_source, after=None)
+
+    time.sleep(15)
+
+    server = ctx.message.guild.voice_client
+    await server.disconnect()
+
+@client.command()
+async def moneh(ctx):
+    channel = ctx.message.author.voice.channel
+    await channel.connect()
+
+    guild = ctx.guild
+    voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+    audio_source = discord.FFmpegPCMAudio('moneh.mp3')
+    if not voice_client.is_playing():
+        voice_client.play(audio_source, after=None)
+
+    time.sleep(11)
+
+    server = ctx.message.guild.voice_client
+    await server.disconnect()
+
+@client.command()
+async def game(ctx):
+    channel = ctx.message.author.voice.channel
+    await channel.connect()
+
+    guild = ctx.guild
+    voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+    audio_source = discord.FFmpegPCMAudio('game.mp3')
+    if not voice_client.is_playing():
+        voice_client.play(audio_source, after=None)
+
+    time.sleep(18)
+
+    server = ctx.message.guild.voice_client
+    await server.disconnect()
+
+@client.command()
+async def genius(ctx):
+    channel = ctx.message.author.voice.channel
+    await channel.connect()
+
+    guild = ctx.guild
+    voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+    audio_source = discord.FFmpegPCMAudio('genius.mp3')
+    if not voice_client.is_playing():
+        voice_client.play(audio_source, after=None)
+
+    time.sleep(6)
+
+    server = ctx.message.guild.voice_client
+    await server.disconnect()
+
+@client.command()
+async def nigga(ctx):
+    channel = ctx.message.author.voice.channel
+    await channel.connect()
+
+    guild = ctx.guild
+    voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+    audio_source = discord.FFmpegPCMAudio('nigga.mp3')
+    if not voice_client.is_playing():
+        voice_client.play(audio_source, after=None)
+
+    time.sleep(5)
+
+    server = ctx.message.guild.voice_client
+    await server.disconnect()
+
+@client.command()
+async def omae(ctx):
+    channel = ctx.message.author.voice.channel
+    await channel.connect()
+
+    guild = ctx.guild
+    voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+    audio_source = discord.FFmpegPCMAudio('omae.mp3')
+    if not voice_client.is_playing():
+        voice_client.play(audio_source, after=None)
+
+    time.sleep(3)
+
+    server = ctx.message.guild.voice_client
+    await server.disconnect()
+
+@client.command()
+async def kokodayo(ctx):
+    channel = ctx.message.author.voice.channel
+    await channel.connect()
+
+    guild = ctx.guild
+    voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+    audio_source = discord.FFmpegPCMAudio('kokodayo.mp3')
+    if not voice_client.is_playing():
+        voice_client.play(audio_source, after=None)
+
+    time.sleep(4)
+
+    server = ctx.message.guild.voice_client
+    await server.disconnect()
+
+@client.command()
+async def nico(ctx):
+    channel = ctx.message.author.voice.channel
+    await channel.connect()
+
+    guild = ctx.guild
+    voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+    audio_source = discord.FFmpegPCMAudio('nico.mp3')
+    if not voice_client.is_playing():
+        voice_client.play(audio_source, after=None)
+
+    time.sleep(3)
+
+    server = ctx.message.guild.voice_client
+    await server.disconnect()
+
+@client.command()
+async def over9k(ctx):
+    channel = ctx.message.author.voice.channel
+    await channel.connect()
+
+    guild = ctx.guild
+    voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+    audio_source = discord.FFmpegPCMAudio('over9k.mp3')
+    if not voice_client.is_playing():
+        voice_client.play(audio_source, after=None)
+
+    time.sleep(3)
+
+    server = ctx.message.guild.voice_client
+    await server.disconnect()
+
+@client.command()
+async def konoyaro(ctx):
+    channel = ctx.message.author.voice.channel
+    await channel.connect()
+
+    guild = ctx.guild
+    voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+    audio_source = discord.FFmpegPCMAudio('konoyaro.mp3')
+    if not voice_client.is_playing():
+        voice_client.play(audio_source, after=None)
+
+    time.sleep(3)
+
+    server = ctx.message.guild.voice_client
+    await server.disconnect()
+
+@client.command()
+async def humble(ctx):
+    channel = ctx.message.author.voice.channel
+    await channel.connect()
+
+    guild = ctx.guild
+    voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+    audio_source = discord.FFmpegPCMAudio('humble.mp3')
+    if not voice_client.is_playing():
+        voice_client.play(audio_source, after=None)
+
+    time.sleep(5)
+
+    server = ctx.message.guild.voice_client
+    await server.disconnect()
+
+@client.command()
+async def zai(ctx):
+    channel = ctx.message.author.voice.channel
+    await channel.connect()
+
+    guild = ctx.guild
+    voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+    audio_source = discord.FFmpegPCMAudio('zai.mp3')
+    if not voice_client.is_playing():
+        voice_client.play(audio_source, after=None)
+
+    time.sleep(6)
+
+    server = ctx.message.guild.voice_client
+    await server.disconnect()
+
+@client.command()
+async def jesus(ctx):
+    channel = ctx.message.author.voice.channel
+    await channel.connect()
+
+    guild = ctx.guild
+    voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+    audio_source = discord.FFmpegPCMAudio('jesus.mp3')
+    if not voice_client.is_playing():
+        voice_client.play(audio_source, after=None)
+
+    time.sleep(5)
+
+    server = ctx.message.guild.voice_client
+    await server.disconnect()
+
+@client.command()
+async def legend(ctx):
+    channel = ctx.message.author.voice.channel
+    await channel.connect()
+
+    guild = ctx.guild
+    voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+    audio_source = discord.FFmpegPCMAudio('legend.mp3')
+    if not voice_client.is_playing():
+        voice_client.play(audio_source, after=None)
+
+    time.sleep(5)
+
+    server = ctx.message.guild.voice_client
+    await server.disconnect()
+
+
+@client.command()
+async def deargod(ctx):
+    channel = ctx.message.author.voice.channel
+    await channel.connect()
+
+    guild = ctx.guild
+    voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+    audio_source = discord.FFmpegPCMAudio('deargod.mp3')
+    if not voice_client.is_playing():
+        voice_client.play(audio_source, after=None)
+
+    time.sleep(3)
+
+    server = ctx.message.guild.voice_client
+    await server.disconnect()
+
+@client.command()
+async def wasthat(ctx):
+    channel = ctx.message.author.voice.channel
+    await channel.connect()
+
+    guild = ctx.guild
+    voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+    audio_source = discord.FFmpegPCMAudio('wasthat.mp3')
+    if not voice_client.is_playing():
+        voice_client.play(audio_source, after=None)
+
+    time.sleep(3)
+
+    server = ctx.message.guild.voice_client
+    await server.disconnect()
+
+@client.command()
+async def retirement(ctx):
+    channel = ctx.message.author.voice.channel
+    await channel.connect()
+
+    guild = ctx.guild
+    voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+    audio_source = discord.FFmpegPCMAudio('retirement.mp3')
+    if not voice_client.is_playing():
+        voice_client.play(audio_source, after=None)
+
+    time.sleep(3)
+
+    server = ctx.message.guild.voice_client
+    await server.disconnect()
+
+@client.command()
+async def pension(ctx):
+    channel = ctx.message.author.voice.channel
+    await channel.connect()
+
+    guild = ctx.guild
+    voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+    audio_source = discord.FFmpegPCMAudio('pension.mp3')
+    if not voice_client.is_playing():
+        voice_client.play(audio_source, after=None)
+
+    time.sleep(2)
+
+    server = ctx.message.guild.voice_client
+    await server.disconnect()
+
+@client.command()
+async def banana(ctx):
+    channel = ctx.message.author.voice.channel
+    await channel.connect()
+
+    guild = ctx.guild
+    voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+    audio_source = discord.FFmpegPCMAudio('banana.mp3')
+    if not voice_client.is_playing():
+        voice_client.play(audio_source, after=None)
+
+    time.sleep(6)
+
+    server = ctx.message.guild.voice_client
+    await server.disconnect()
+
+@client.command()
+async def dowry(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('dowry.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(10)
+
+        server = ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def nerd(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('nerd.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(14)
+
+        server = ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def sixk(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('sixk.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(6)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def idi(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('idi.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(2)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def miko(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('miko.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(3)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def onore(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('onore.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(3)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def degen(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('degen.wav')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(4)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def pardun(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('PARDUN.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(6)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def kiamoan(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('kiamoan.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(12)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def sayonara(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('sayonara.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(2)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def asa(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('asa.wav')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(9)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def pogchamp(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('little_pogchamp1.wav')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(4)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def smol(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('smol.wav')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(14)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def winf(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('WinF.wav')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(17)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def kuso(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('kuso.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(2)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def nono(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('Not_there.wav')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(7)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def ehe(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('Ehe_te_nandayo.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(3)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def gg(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('Okay_Im_Dead_GG.wav')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(6)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def ara(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('AraAra.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(2)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def putin(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('boifrend.wav')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(6)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def okaeri(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('OKAERI.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(10)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def madar(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('Madar_Chodh.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(2)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def benc(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('Benchodh.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(8)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def chutiya(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('Chutiya.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(7)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def chipapa(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('Chi_Pa_Pa.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(4)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def fightback(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('fightback.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(4)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def doktah(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('Okaeri_Doktah.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(3)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def ape(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('Ape.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(11)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def protect(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('protect.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(3)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def based(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('based.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(6)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def dayo(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('dayo.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(5)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def sick(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('sickfujck.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(11)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def rei(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('reirei.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(5)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def giveup(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('giveup.wav')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(9)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def chicken(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('chicken.wav')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(7)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def tasukete(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('tasukete.wav')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(3)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def not2speak(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('not2speak.wav')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(9)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def rockch(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('rockch.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(5)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def cuntaway(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('cuntaway.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(6)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command(aliases =['2cb'])
+async def _2cb(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('2cb.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(4)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command(aliases =['2gud'])
+async def _2gud(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('2gud.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(2)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def ams(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('ams.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(1.5)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def aui(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('aui.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(3)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def beaut(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('beaut.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(2)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def cheeky(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('cheeky.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(2)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+@client.command()
+async def ded(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('ded.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(3)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def dove(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('dove.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(2)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def ephy(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('ephy.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(3)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def expected(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('expected.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(4)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def explain(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('explain.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(3)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def fog(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('fog.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(2)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def freeze(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('freeze.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(3)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def impressed(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('impressed.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(2)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def noo(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('noo.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(5)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def pep(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('pep.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(3)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def praise(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('praise.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(4)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def ros(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('ros.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(5)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def sheever(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('sheever.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(2)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def shi(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('shi.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(2)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def t2m(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('t2m.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(2)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def wai(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('wai.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(5)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def wat(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('wat.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(2)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def wut(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('wut.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(4)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def wyd(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('wyd.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(2)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def yuno(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('yuno.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(3)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def kokki(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('kokki_kumar.wav')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(3)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def bna(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('bna.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(3)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def besto(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('besto.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(5)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command()
+async def congrats(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('congrats.mp3')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(4)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
+@client.command(pass_context=True)
+async def dex(ctx, *, entryname):
+    typelist = {'Normal (type)', 'Fire (type)', 'Fighting (type)', 'Water (type)', 'Flying (type)', 'Grass (type)', 'Poison (type)', 'Electric (type)', 'Ground (type)', 'Psychic (type)', 'Rock (type)', 'Ice (type)', 'Bug (type)', 'Dragon (type)', 'Ghost (type)', 'Dark (type)', 'Steel (type)', 'Fairy (type)'}
+    url = "https://bulbapedia.bulbagarden.net/wiki/" + entryname + "_(Pokemon)"
+    req = urllib.request.Request(url, headers={'User-Agent' : "Magic Browser"})
+    html = urlopen(req)
+    soup = BeautifulSoup(html)
+    textsc = soup.find_all('a', attrs={'title':'Pokémon category'})
+    for text in textsc:
+        slc = len(str(text))
+        sc = str(text)
+        await ctx.send(url + "\n```Category: " + sc[89:slc-11] + "```")
+        break
+    textsn = soup.find_all('a', attrs={'title':'List of Pokémon by National Pokédex number'})
+    cn = 0
+    for text in textsn:
+        if cn==1:
+            sln = len(str(text))
+            sn = str(text)
+            await ctx.send("```" + sn[146:sln-11] + "```")
+        cn+=1
+        if cn==2:
+            break
+    cnt = []
+    cnt1 = []
+    textst = soup.find_all('a', attrs={'title':typelist})[0].text
+    cnt.append(textst)
+    cnt = str(cnt)
+    textst = soup.find_all('a', attrs={'title':typelist})[1].text
+    cnt1.append(textst)
+    cnt1 = str(cnt1)
+    await ctx.send("```Type: " + cnt + "/" + cnt1 + "```")
+
+    textContent = []
+    textContent1 = []
+    paragraphs = soup.find_all("p")[0].text
+    textContent.append(paragraphs)
+    textContent = str(textContent)
+    paragraphs = soup.find_all("p")[1].text
+    textContent1.append(paragraphs)
+    textContent1 = str(textContent1)
+    await ctx.send("```Description: " + textContent + textContent1 + "```")
+
+
+
+
+client.run('NjcyNTI5ODc0ODY2NjY3NTQy.XjM0QQ.NHhoILU5iDvPJ-KMCAQhczegPj8')
