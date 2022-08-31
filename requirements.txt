@@ -7,3 +7,5 @@ asyncio
 pandas
 PyNaCl
 ffmpeg
+os
+dotenv
