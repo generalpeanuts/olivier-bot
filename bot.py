@@ -11,6 +11,9 @@ import discord
 import os
 from discord.ext import commands
 import time
+from dotenv import load_dotenv
+
+load_dotenv()
 
 player = {}
 
