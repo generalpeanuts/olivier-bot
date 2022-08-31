@@ -1525,4 +1525,4 @@ async def dex(ctx, *, entryname):
 
 
 
-client.run('NjcyNTI5ODc0ODY2NjY3NTQy.XjM0QQ.NHhoILU5iDvPJ-KMCAQhczegPj8')
+client.run('NjcyNTI5ODc0ODY2NjY3NTQy.GBI-D3.-tdmGP9ZS9_ICkFRuoprZeZYsOqcZaq0UrxNjU')
