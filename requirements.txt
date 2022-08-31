@@ -4,7 +4,6 @@ urllib
 beautifulsoup4
 asyncio
 pandas
-PyNaCl
 ffmpeg
 os
 dotenv
