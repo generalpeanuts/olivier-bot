@@ -1,7 +1,9 @@
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
+import re
 import urllib
 import asyncio
 import random
@@ -9,9 +11,6 @@ import discord
 import os
 from discord.ext import commands
 import time
-from dotenv import load_dotenv
-
-load_dotenv()
 
 player = {}
 

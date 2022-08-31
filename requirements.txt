@@ -1,8 +1,9 @@
 discord.py
 numpy
-urllib3
+matplotlib
+urllib5
 beautifulsoup4
 asyncio
 pandas
+PyNaCl
 ffmpeg
-python-dotenv
