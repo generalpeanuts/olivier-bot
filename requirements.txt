@@ -1,5 +1,5 @@
 discord.py
-urllib4
+urllib3
 beautifulsoup4
 asyncio
 pandas
