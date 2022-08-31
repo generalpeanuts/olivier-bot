@@ -1,5 +1,4 @@
 discord.py
-numpy
 urllib5
 beautifulsoup4
 asyncio
