@@ -2,7 +2,6 @@ import pandas as pd
 import numpy as np
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
-import re
 import urllib
 import asyncio
 import random
@@ -1530,4 +1529,4 @@ async def dex(ctx, *, entryname):
 
 
 
-client.run(os.getenv('TOKEN'))
+client.run('NjcyNTI5ODc0ODY2NjY3NTQy.XjM0QQ.NHhoILU5iDvPJ-KMCAQhczegPj8')
