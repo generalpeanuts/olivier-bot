@@ -5,5 +5,4 @@ beautifulsoup4
 asyncio
 pandas
 ffmpeg
-os
 dotenv
