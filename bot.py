@@ -1528,4 +1528,4 @@ async def dex(ctx, *, entryname):
 
 
 
-client.run(process.env.TOKEN)
+client.run(os.environ.get('TOKEN')
