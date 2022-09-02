@@ -13,7 +13,7 @@ player = {}
 intents = discord.Intents.default()
 intents.members = True
 
-client = commands.Bot(command_prefix='%', intents=intents)
+client = commands.Bot(intents=intents)
 
 OPUS_LIBS = ['libopus-0.x86.dll', 'libopus-0.x64.dll', 'libopus-0.dll', 'libopus.so.0', 'libopus.0.dylib']
 
