@@ -10,7 +10,7 @@ from discord.ext import commands
 import time
 
 player = {}
-intents = discord.Intents.default()
+intents = discord.Intents.all()
 intents.members = True
 
 client = commands.Bot(intents=intents)
