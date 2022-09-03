@@ -1479,42 +1479,38 @@ async def congrats(ctx):
         server=ctx.message.guild.voice_client
         await server.disconnect()
 
-# @client.command(pass_context=True)
-# async def dex(ctx, *, entryname):
-    # url = "https://www.pokemon.com/us/pokedex/" + entryname
-    # req = urllib.request.Request(url, headers={'User-Agent' : "Magic Browser"})
-    # html = urlopen(req)
-    # soup = BeautifulSoup(html, features="html.parser")
-    # textsc = soup.find_all('div', attrs={'class':'pokedex-pokemon-pagination-title'})
-    # textsc = str(textsc)
-    # pname = textsc[60:-62]
-    # print(pname)
-    # textsc = soup.find_all('span', attrs={'class':'pokemon-number'})
-    # textsc = str(textsc)
-    # pnum = textsc[233:-81]
-    # print(pnum)
-    # textsc = soup.find_all('p', attrs={'class':'version-x'})
-    # textsc = str(textsc)
-    # descrip = textsc[48:-22]
-    # print(descrip)
-    # c = 0
-    # type = []
+@client.command(pass_context=True)
+async def dex(ctx, *, entryname):
+    url = "https://www.pokemon.com/us/pokedex/" + entryname
+    req = urllib.request.Request(url, headers={'User-Agent' : "Magic Browser"})
+    html = urlopen(req)
+    soup = BeautifulSoup(html, features="html.parser")
+    textsc = soup.find_all('div', attrs={'class':'pokedex-pokemon-pagination-title'})
+    textsc = str(textsc)
+    pname = textsc[60:-62]
+    print(pname)
+    textsc = soup.find_all('span', attrs={'class':'pokemon-number'})
+    textsc = str(textsc)
+    pnum = textsc[233:-81]
+    print(pnum)
+    textsc = soup.find_all('p', attrs={'class':'version-x'})
+    textsc = str(textsc)
+    descrip = textsc[48:-22]
+    print(descrip)
+    c = 0
+    type = []
 
 #
 
+    typelist = ["Fire","Grass","Water","Ice","Dragon","Rock","Ground","Electric","Fairy","Dark","Bug","Fighting","Poison","Steel","Flying","Normal","Psychic","Ghost"]
+    textsc = soup.find_all('a', attrs={'href': lambda x: x and x.startswith('/us/pokedex/?type=') })
+    textsc = str(textsc)
+    for x in range(len(typelist)):
+        if typelist[x] in textsc:
+            type.append(typelist[x])
+    await ctx.send("```Name: " + pname + "\nPokeDex No.: " + pnum + "\n" + descrip + "\nTypes: " + type[0] + type[1]"```")
 
 #
-    # typelist = ["Fire","Grass","Water","Ice","Dragon","Rock","Ground","Electric","Fairy","Dark","Bug","Fighting","Poison","Steel","Flying","Normal","Psychic","Ghost"]
-    # textsc = soup.find_all('a', attrs={'href': lambda x: x and x.startswith('/us/pokedex/?type=') })
-    # textsc = str(textsc)
-    # for x in range(len(typelist)):
-        # if typelist[x] in textsc:
-            # type.append(typelist[x])
-    # await ctx.send("```Name: " + pname + "\nPokeDex No.: " + pnum + "\n" + descrip + "\nTypes: " + type[0] + type[1]```")
 
-#
-
-
-#
 
 client.run(os.environ['TOKEN'])
