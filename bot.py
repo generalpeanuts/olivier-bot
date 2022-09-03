@@ -1480,7 +1480,7 @@ async def congrats(ctx):
         await server.disconnect()
 
 @client.command(pass_context=True)
-async def dex(ctx, entryname):
+async def dex(ctx, *, entryname):
     url = "https://www.pokemon.com/us/pokedex/" + entryname
     req = urllib.request.Request(url, headers={'User-Agent' : "Magic Browser"})
     html = urlopen(req)
