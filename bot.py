@@ -1493,7 +1493,7 @@ async def dex(ctx, *, entryname):
     textsc = str(textsc)
     pnum = textsc[233:-81]
     print(pnum)
-    textsc = soup.find_all('p', attrs={'class':'version-x'})
+    textsc = soup.find_all('p', attrs={'class':'version-x active'})
     textsc = str(textsc)
     descrip = textsc[48:-22]
     print(descrip)
@@ -1508,7 +1508,7 @@ async def dex(ctx, *, entryname):
     for x in range(len(typelist)):
         if typelist[x] in textsc:
             type.append(typelist[x])
-    await ctx.send("```Name: " + pname + "\nPokeDex No.: " + pnum + "\n" + descrip + "\nTypes: " + type[0] + type[1] + "```")
+    await ctx.send("```Name: " + pname + "\nPokeDex No.: " + pnum + "\n" + descrip + "\nTypes: " + type[0] + " / " + type[1] + "```")
 
 #
 
