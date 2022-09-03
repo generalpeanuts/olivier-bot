@@ -1508,7 +1508,7 @@ async def dex(ctx, *, entryname):
     for x in range(len(typelist)):
         if typelist[x] in textsc:
             type.append(typelist[x])
-    await ctx.send("```Name: " + pname + "\nPokeDex No.: " + pnum + "\n" + descrip + "\nTypes: " + type[0] + type[1]"```")
+    await ctx.send("```Name: " + pname + "\nPokeDex No.: " + pnum + "\n" + descrip + "\nTypes: " + type[0] + type[1] + "```")
 
 #
 
