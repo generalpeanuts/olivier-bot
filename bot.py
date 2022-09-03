@@ -1481,47 +1481,33 @@ async def congrats(ctx):
 
 @client.command(pass_context=True)
 async def dex(ctx, *, entryname):
-    typelist = {'Normal (type)', 'Fire (type)', 'Fighting (type)', 'Water (type)', 'Flying (type)', 'Grass (type)', 'Poison (type)', 'Electric (type)', 'Ground (type)', 'Psychic (type)', 'Rock (type)', 'Ice (type)', 'Bug (type)', 'Dragon (type)', 'Ghost (type)', 'Dark (type)', 'Steel (type)', 'Fairy (type)'}
-    url = "https://bulbapedia.bulbagarden.net/wiki/" + entryname + "_(Pokemon)"
+    url = "https://www.pokemon.com/us/pokedex/ivysaur"
     req = urllib.request.Request(url, headers={'User-Agent' : "Magic Browser"})
     html = urlopen(req)
-    soup = BeautifulSoup(html)
-    textsc = soup.find_all('a', attrs={'title':'Pokémon category'})
-    for text in textsc:
-        slc = len(str(text))
-        sc = str(text)
-        await ctx.send(url + "\n```Category: " + sc[89:slc-11] + "```")
-        break
-    textsn = soup.find_all('a', attrs={'title':'List of Pokémon by National Pokédex number'})
-    cn = 0
-    for text in textsn:
-        if cn==1:
-            sln = len(str(text))
-            sn = str(text)
-            await ctx.send("```" + sn[146:sln-11] + "```")
-        cn+=1
-        if cn==2:
-            break
-    cnt = []
-    cnt1 = []
-    textst = soup.find_all('a', attrs={'title':typelist})[0].text
-    cnt.append(textst)
-    cnt = str(cnt)
-    textst = soup.find_all('a', attrs={'title':typelist})[1].text
-    cnt1.append(textst)
-    cnt1 = str(cnt1)
-    await ctx.send("```Type: " + cnt + "/" + cnt1 + "```")
+    soup = BeautifulSoup(html, features="html.parser")
+    textsc = soup.find_all('div', attrs={'class':'pokedex-pokemon-pagination-title'})
+    textsc = str(textsc)
+    pname = textsc[60:-62]
+    print(pname)
+    textsc = soup.find_all('span', attrs={'class':'pokemon-number'})
+    textsc = str(textsc)
+    pnum = textsc[233:-81]
+    print(pnum)
+    textsc = soup.find_all('p', attrs={'class':'version-x'})
+    textsc = str(textsc)
+    descrip = textsc[48:-22]
+    print(descrip)
+    c = 0
+    type = ['','']
 
-    textContent = []
-    textContent1 = []
-    paragraphs = soup.find_all("p")[0].text
-    textContent.append(paragraphs)
-    textContent = str(textContent)
-    paragraphs = soup.find_all("p")[1].text
-    textContent1.append(paragraphs)
-    textContent1 = str(textContent1)
-    await ctx.send("```Description: " + textContent + textContent1 + "```")
+    typelist = ["Fire","Grass","Water","Ice","Dragon","Rock","Ground","Electric","Fairy","Dark","Bug","Fighting","Poison","Steel","Flying","Normal","Psychic","Ghost"]
+    textsc = soup.find_all('a', attrs={'href': lambda x: x and x.startswith('/us/pokedex/?type=') })
+    textsc = str(textsc)
+    for x in range(len(typelist)):
+        if typelist[x] in textsc:
+            type.append(typelist[x])
 
+    await ctx.send("```Name: " + pname + "\nPokeDex No.: " + pnum + "\n" + descrip + "\nTypes: " + type[0] + type[1]```")
 
 
 
