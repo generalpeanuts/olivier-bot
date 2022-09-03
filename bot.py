@@ -1481,7 +1481,7 @@ async def congrats(ctx):
 
 @client.command(pass_context=True)
 async def dex(ctx, *, entryname):
-    url = "https://www.pokemon.com/us/pokedex/ivysaur"
+    url = "https://www.pokemon.com/us/pokedex/" + entryname
     req = urllib.request.Request(url, headers={'User-Agent' : "Magic Browser"})
     html = urlopen(req)
     soup = BeautifulSoup(html, features="html.parser")
