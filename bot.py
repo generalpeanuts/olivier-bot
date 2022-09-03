@@ -1498,7 +1498,7 @@ async def dex(ctx, *, entryname):
     descrip = textsc[48:-22]
     print(descrip)
     c = 0
-    type = ['','']
+    type = []
 
     typelist = ["Fire","Grass","Water","Ice","Dragon","Rock","Ground","Electric","Fairy","Dark","Bug","Fighting","Poison","Steel","Flying","Normal","Psychic","Ghost"]
     textsc = soup.find_all('a', attrs={'href': lambda x: x and x.startswith('/us/pokedex/?type=') })
