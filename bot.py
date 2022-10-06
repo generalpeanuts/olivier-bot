@@ -53,7 +53,7 @@ async def iroh(ctx):
 @client.command()
 async def h(ctx):
     embed1 = discord.Embed(title = "COMMANDS HELP")
-    embed1.add_field(name = "SoundBites",value = "3hits,bna,screen,donger,dima,moneh,game,genius,nigga,omae,kokodayo,nico,over9k,konoyaro,humble,zai,jesus,legend,deargod,wasthat,retirement,pension,banana,dowry,nerd,sixk,idi,miko,onore,degen,pardun,kiamoan,sayonara,asa,pogchamp,smol,winf,kuso,nono,ehe,gg,ara,putin,okaeri,madar,chutiya,benc,chipapa,fightback,doktah,protect,based,ape,dayo,sick,rei,chicken,tasukete,giveup,not2speak,rockch,cuntaway,2cb,2gud,ams,aui,beaut,cheeky,ded,dove,ephy,expected,explain,fog,freeze,impressed,noo,pep,praise,ros,sheever,shi,t2m,wai,wat,wut,wyd,yuno,kokki,besto,congrats,3sec", inline = False)
+    embed1.add_field(name = "SoundBites",value = "3hits,bna,screen,donger,dima,moneh,game,genius,nigga,omae,kokodayo,nico,over9k,konoyaro,humble,zai,jesus,legend,deargod,wasthat,retirement,pension,banana,dowry,nerd,sixk,idi,miko,onore,degen,pardun,kiamoan,sayonara,asa,pogchamp,smol,winf,kuso,nono,ehe,gg,ara,putin,okaeri,madar,chutiya,benc,chipapa,fightback,doktah,protect,based,ape,dayo,sick,rei,chicken,tasukete,giveup,not2speak,rockch,cuntaway,2cb,2gud,ams,aui,beaut,cheeky,ded,dove,ephy,expected,explain,fog,freeze,impressed,noo,pep,praise,ros,sheever,shi,t2m,wai,wat,wut,wyd,yuno,kokki,besto,congrats,3sec,wacky", inline = False)
     embed1.add_field(name = "Wise Words",value = "iroh", inline = False)
     embed1.add_field(name = "Pokedex",value = "dex <name of pokemon>", inline = False)
     await ctx.send(embed = embed1)
@@ -1493,6 +1493,22 @@ async def _3sec(ctx):
 
         server=ctx.message.guild.voice_client
         await server.disconnect()
+
+@client.command()
+async def wacky(ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('./audiofiles/wacky.wav')
+        if not voice_client.is_playing():
+            voice_client.play(audio_source, after=None)
+
+        time.sleep(8)
+
+        server=ctx.message.guild.voice_client
+        await server.disconnect()
+
 
 @client.command(pass_context=True)
 async def dex(ctx, *, entryname):
